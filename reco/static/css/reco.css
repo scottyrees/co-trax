@@ -1,0 +1,154 @@
+.page-header {
+    background-color: #36454fk;
+    margin-top: 0;
+    padding: 5px 5px 5px 5px;
+}
+
+.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+    color: #555;
+    font-size: 40pt;
+    font-family: Verdana;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+.userbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    float: right;
+    background-color: black;
+    width: 25%;
+}
+
+.userbar li {
+    text-align:right;
+    padding-top: 10px;
+    padding-bottom: 0px;
+    padding-right:15px;
+}
+
+
+body {
+    background: black;
+}
+
+.top-menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #555;
+    border: 2px solid silver;
+    }
+
+.top-menu li {
+    float: left;
+}
+
+.top-menu li a {
+    display: block;
+    font-family: Verdana;
+    font: 18pt bold;
+    color: silver;
+    text-align: center;
+    padding: 0px 50px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+.top-menu li a:hover {
+    background-color: #555;
+    color: white;
+} 
+
+.top-menu .active {
+    background-color: #555;
+    color: white;
+}
+
+.side-menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    float: right;
+    background-color: black;
+    width: 18%;
+    height: 100%;
+    /*position: fixed;*/
+    overflow: auto;
+}
+
+.side-menu li {
+    text-align: left;
+}
+
+.side-menu li a {
+    display: block;
+    padding: 5px;
+    color: silver;
+    font-family: Verdana;
+    font: 16pt;
+    text-decoration: none;
+}
+
+/* Change the link color on hover */
+.side-menu li a:hover {
+    background-color: black;
+    color: white;
+}
+
+.side-menu .active {
+    background-color: black;
+    color: white;
+}
+
+.side-menu li:last-child {
+    border-bottom: none;
+}
+
+.content {
+    margin-left: 50px;
+    font-family: Verdana;
+    color: white;
+}
+
+.content-title p {
+    font-size: 32pt;
+    font-family: Verdana;
+    text-decoration: none;
+    color: #555;
+    text-align: center;
+}
+
+.content p, .content p a {
+    color: white;
+    text-decoration: none;
+}
+
+.content h2, .content h2 a {
+    color: silver;
+    font-family: Verdana;
+    font: 16pt;
+    text-decoration: none;
+}
+
+.content h2 a:hover {
+    background-color: black;
+    color: white;
+}
+
+th, td, td a {
+    color: white;
+    text-align: center;
+}
+
+tr.border_bottom td {
+  border-bottom:1pt solid silver;
+}
+
+
+
+

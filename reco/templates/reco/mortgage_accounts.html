@@ -1,0 +1,32 @@
+{% extends 'reco/base.html' %}
+
+{% block content %}
+    <div class="side-menu">
+        <ul>
+            <li><a href="{% url 'reco:bank_accounts' pk=company.id %}">Bank Accounts</li>
+            <li><a href="{% url 'reco:creditcard_accounts' pk=company.id %}">Credit Cards</li>
+            <li><a href="{% url 'reco:mortgage_accounts' pk=company.id %}">Mortgage Accounts</li>
+            <li><a href="{% url 'reco:loans_receivable' pk=company.id %}">Loans Receivable</li>
+            <li><a href="{% url 'reco:loans_payable' pk=company.id %}">Loans Payable</li>
+            <li><a href="{% url 'reco:accounts_receivable' pk=company.id %}">Accounts Receivable</li>
+            <li><a href="{% url 'reco:accounts_payable' pk=company.id %}">Accounts Payable</li>
+            <li><a href="{% url 'reco:staff_list' pk=company.id %}">Staff</li>
+        </ul>
+    </div>
+
+        <h2>Mortgage Accounts</h2>
+        <p>Company: {{ company.name }}</p>
+        <p></p>
+
+	<table style="width:75%">
+            <tr>
+                <th>Account Number</th>
+                <th>Lender</th>
+                <th>Renewal Date</th>
+                <th>Monthly Payment</th>
+                <th>Principal Balance</th>
+            </tr>
+
+        </table>
+
+    {% endblock %}

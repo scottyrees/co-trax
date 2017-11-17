@@ -1,0 +1,36 @@
+{% extends 'reco/base.html' %}
+
+{% block content %}
+    <div class="side-menu">
+        <ul>
+            <li><a href="{% url 'reco:company_directors' pk=company.id %}">Directors</li>
+            <li><a href="{% url 'reco:company_sharelog' pk=company.id %}">Shareholdings</li>
+            <li><a href="http://google.com" </a>TAB 3</li>
+            <li><a href="http://google.com" </a>TAB 4</li>
+        </ul>
+    </div>
+
+        <h2>Shareholdings History</h2>
+        <p>Company: {{ company.name }}</p>
+	
+	<table style="width:75%">
+            <tr>
+                <th>Transaction Date</th>
+                <th>Transaction Type</th>
+                <th>Shareholder</th>
+                <th>Number of Shares</th>
+                <th>Price Per Share</th>
+            </tr>
+            {% for transaction in result_list %}
+                <tr>
+                    <td>{{ transaction.transaction_date }}</td>
+                    <td>{{ transaction.transaction_type }}</td>
+                    <td>{{ transaction.shareholder }}</td>
+                    <td>{{ transaction.number_of_shares }}</td>
+                    <td>$ {{ transaction.price }}</td>
+                </tr>
+            {% endfor %}
+        
+        </table>    
+
+    {% endblock %}

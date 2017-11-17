@@ -1,0 +1,32 @@
+{% extends 'reco/base.html' %}
+
+{% block content %}
+        <div class="content-title">
+            <p>Unit Details</p>
+        </div>
+        
+        <h2>Unit {{ unit }}</h2>
+        <p>Building: <a href="{% url 'reco:building_detail' pk=company.id pk1=unit.building.id %}">{{ unit.building }}</p>
+        <p>Bedrooms: {{ unit.bedrooms }}</p>
+	<p>Square Footage: {{ unit.sqft }}</p>
+	<p>Description: {{ unit.description }}</p>
+	<p><button type="button"><a href="{% url 'reco:edit_unit' pk=company.id pk1=unit.building.id pk2=unit.id %}">Edit</button> <button type="button"><a href="{% url 'reco:remove_unit' pk=company.id pk1=unit.building.id pk2=unit.id %}">Remove</button></p>
+	
+	<table style="width:50%">
+            <tr>
+                <th>Tenant <button type="button"><a href="{% url 'reco:add_tenant' pk=company.id pk1=unit.building.id pk2=unit.id %}">+</button></th>
+                <th>Move In Date</th>
+                <th>Move Out Date</th>
+                <th>Rental Price</th>
+            </tr>
+            {% for tenant in tenants %}
+                <tr>
+                    <td><a href="{% url 'reco:tenant_detail' pk=company.id pk1=unit.building.id pk2=unit.id pk3=tenant.id %}">{{ tenant.lname }}, {{ tenant.fname }}</td>
+                    <td>{{ tenant.start_date }}</td>
+                    <td>{{ tenant.moveout_date }}</td>
+                    <td>${{ tenant.current_rent }}</td>
+                </tr>
+            {% endfor %}
+        </table>    
+
+    {% endblock %}

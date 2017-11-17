@@ -1,0 +1,46 @@
+{% extends 'reco/base.html' %}
+
+{% block content %}
+        <h2>{{ building.name }}</h2>
+        <p>Legal Description: {{ building.legal_description }}</p>
+	<p>Address: {{ building.address }}, {{ building.city }}, {{building.province }} {{ building.postalcode }}</p>
+	<p>Building Type: {{ building.building_type }}</p>
+	<p>Year Built: {{ building.year_built }}</p>
+</p>
+	<p>Purchase Date: {{ building.purchase_date }}</p>
+	<p>Purchase Price: ${{ building.purchase_price }}</p>
+	<p><button type="button">Edit</button></p>
+
+        <p></p>
+        <h2>Unit Info</h2>
+        <table style="width:100%">
+            <tr>
+                <th>Unit <button type="button"><a href="{% url 'reco:add_unit' pk=company.id pk1=building.id %}">+</button></th>
+                <th>Bedrooms</th>
+                <th>Tenant</th>
+                <th>Start Date</th>
+                <th>Renewal Date</th>
+                <th>Current Rent</th>
+            </tr>
+            {% for unit, beds, tenant, start, renew, rent in data %}
+                <tr>
+                    <td><a href="{% url 'reco:unit_detail' pk=company.id pk1=building.id pk2=unit.id %}">{{ unit.roomnumber }}</a></td>
+                    <td>{{ beds }}</td>
+                    <td>{{ tenant }}</a></td>
+                    <td>{{ start }}</td>
+                    <td>{{ renew }}</td>
+                    <td>${{ rent }}</td>
+                </tr>
+                
+            {% endfor %}
+                <tr>
+                    <th>{{ number_of_units }} Units</th>
+                    <th>{{ roomsum }} Bedrooms</th>
+                    <th>{{ number_of_vacancies }} Vacancies</th>
+                    <td></td>
+                    <td></td>
+                    <th>${{ rentsum }}</th>
+                </tr>
+        </table>    
+
+    {% endblock %}

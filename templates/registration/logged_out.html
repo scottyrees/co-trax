@@ -1,0 +1,21 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title>co-TRAX</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/reco.css' %}">
+    </head>
+    <body>
+        <div class="page-header">
+            <h1>coTRAX</h1>
+        </div>
+
+    	<div class="content">
+            <h2>You are now logged out.</h2>
+            <p><a href="{% url 'login' %}">Return to Login Page</a></p>
+            <p><a href="{% url 'reco:public_overview' %}">Return to Public Site</a></p>
+	</div>
+   </body>
+</html>
+

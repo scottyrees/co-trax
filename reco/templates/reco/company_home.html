@@ -1,0 +1,17 @@
+{% extends 'reco/base.html' %}
+
+{% block content %}
+    <div class="side-menu">
+        <ul>
+            <li><a href="{% url 'reco:company_directors' pk=company.id %}">Directors</li>
+            <li><a href="{% url 'reco:company_sharelog' pk=company.id %}">Shareholdings</li>
+            <li><a href="http://google.com" </a>TAB 3</li>
+            <li><a href="http://google.com" </a>TAB 4</li>
+        </ul>
+    </div>
+        
+        <h2>{{ company.name }}</h2>
+        <p>Corporate Address: {{ company.address }}, {{ company.city }}, {{ company.province }} {{ company.postalcode }}</p>
+        <p>Shares Outstanding: {{ share_count }}</p>
+	
+    {% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'reco/base.html' %}
+
+{% block content %}
+        
+        <h2>Bank Account: {{ account.acct_number }}</h2>
+        <p>Company: {{ company.name }}</p>
+        <p>Cheques Outstanding: 0; Value of Cheques Outstanding: $ 0.00</p>
+	
+	<table style="width:100%">
+            <tr>
+                <th>Date <button type="button"><a href="{% url 'reco:add_transaction' pk=company.id pk4=account.id %}">+</button></th>
+                <th>Bank Description</th>
+                <th>Value</th>
+                <th>Account Balance</th>
+                <th>Custom Description</th>
+            </tr>
+            {% for transaction, balance in data %}
+                <tr>
+                    <td>{{ transaction.transaction_date }}</td>
+                    <td>{{ transaction.bank_description }}</td>
+                    <td>${{ transaction.value }}</td>
+                    <td>${{ balance }}</td>
+                    <td>{{ transaction.user_description }}</td>
+                </tr>
+            {% endfor %}
+        </table>    
+
+    {% endblock %}

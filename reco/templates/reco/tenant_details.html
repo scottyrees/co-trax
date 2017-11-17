@@ -1,0 +1,36 @@
+{% extends 'reco/base.html' %}
+
+{% block content %}
+        <div class="content-title">
+            <p>Tenant Details</p>
+        </div>
+        
+        <h2>{{ tenant.lname }}, {{ tenant.fname }}</h2>
+        <p>Building: <a href="{% url 'reco:building_detail' pk=company.id pk1=unit.building.id %}">{{ building.name }}</p>
+	<p>Unit: <a href="{% url 'reco:unit_detail' pk=company.id pk1=unit.building.id pk2=unit.id %}">{{ unit.roomnumber }}</p>
+	<p>Start Date: {{ tenant.start_date }}</p>
+	<p>Renewal Date: {{ tenant.renew_date }}</p>
+	<p>Current Rent: ${{ tenant.current_rent }}</p>
+	<p><button type="button">Edit</button> <button type="button">Remove</button></p>
+
+        <p></p>
+	<h2>Payment Log</h2>
+	<table style="width:50%">
+            <tr>
+                <th>Date <button type="button"><a href="{% url 'reco:add_tenant_payment' pk=company.id pk1=unit.building.id pk2=unit.id pk3=tenant.id %}">+</button></th>
+                <th>Category</th>
+                <th>Value</th>
+                <th>Description</th>
+            </tr>
+            {% for payment in payments %}
+                <tr>
+                    <td>{{ payment.date }}</td>
+                    <td>{{ payment.category }}</td>
+                    <td>${{ payment.amount }}</td>
+                    <td>{{ payment.description }}</td>
+                </tr>
+            {% endfor %}
+
+        </table>    
+
+    {% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'reco/base.html' %}
+
+{% block content %}
+    <div class="side-menu">
+        <ul>
+            <li><a href="{% url 'reco:company_directors' pk=company.id %}">Directors</li>
+            <li><a href="{% url 'reco:company_sharelog' pk=company.id %}">Shareholdings</li>
+            <li><a href="http://google.com" </a>TAB 3</li>
+            <li><a href="http://google.com" </a>TAB 4</li>
+        </ul>
+    </div>
+
+        <h2>Current Shareholdings</h2>
+        <p>Company: {{ company.name }}</p>
+        <p>Shares Outstading: {{ total_shares }}</p>
+        <p>Shareholder Equity: </p>
+        <p>Price Per Share: </p>
+	
+	<table style="width:75%">
+            <tr>
+                <th>Shareholder</th>
+                <th>Shares Held</th>
+                <th>Percent Ownership</th>
+                <th>Estimated Share Equity</th>
+            </tr>
+            {% for shareholder, shares, percent in data %}
+                <tr>
+                    <td>{{ shareholder }}</td>
+                    <td>{{ shares }}</td>
+                    <td>{{ percent }}</td>
+                    <td>TBD</td>
+                </tr>
+            {% endfor %}
+
+        </table>    
+
+    {% endblock %}

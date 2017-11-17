@@ -1,0 +1,45 @@
+{% extends 'reco/base.html' %}
+
+{% block content %}
+    <div class="side-menu">
+        <ul>
+            <li><a href="http://google.com" </a>TAB 1</li>
+            <li><a href="http://google.com" </a>TAB 2</li>
+            <li><a href="http://google.com" </a>TAB 3</li>
+            <li><a href="http://google.com" </a>TAB 4</li>
+        </ul>
+    </div>
+        <h2>Properties Registry</h2>
+        <p>Company: {{ company.name }}</p>
+        <table style="width:80%">
+            <tr>
+                <th>Building <button type="button"><a href="{% url 'reco:add_building' pk=company.id %}">+</button></th>
+                <th>Location</th>
+                <th>Type</th>
+                <th>Units</th>
+                <th>Vacancies</th>
+                <th>Current Rent</th>
+            </tr>
+            {% for building, unit_nums, vacant_nums, rent  in data %}
+                <tr>
+                    <td><a href="{% url 'reco:building_detail' pk=company.id pk1=building.id %}">{{ building.name }}</a></td>
+                    <td>{{ building.city }}</td>
+                    <td>{{ building.building_type }}</a></td>
+                    <td>{{ unit_nums }}</td>
+                    <td>{{ vacant_nums }}</td>
+                    <td>${{ rent }}</td>
+                </tr>
+                
+            {% endfor %}
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <th>{{ unitsum }}</th>
+                <th>{{ vacantsum }}</th>
+                <th>${{ rentsum }}</th>
+            </tr>
+        </table>    
+
+
+{% endblock %}

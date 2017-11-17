@@ -1,0 +1,44 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title>co-TRAX</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/reco.css' %}">
+    </head>
+    <body>
+            <div class="userbar">
+                <ul>
+                {% if user.is_authenticated %}
+                    <li>Username: {{ user.username }} <button type="button"><a href="{% url 'logout' %}">Logout</button></li>
+                    <li>{{ company.name }} <button type="button"><a href="{% url 'reco:company_select' %}">Switch</button></li>
+                {% else %}
+                    <li>Registered User? <button type="button"><a href="{% url 'login' %}">Login</button></li>
+                    <li>New User? Register</li>
+                {% endif %}
+                </ul>
+            </div>
+        <div class="page-header">
+            <h1>coTRAX</h1>
+        </div>
+
+        <div class="top-menu">
+            <ul>
+                <li><a href="{% url 'reco:company_home' pk=company.id %}">CORPORATE</li>
+                <li><a href="{% url 'reco:buildings_list' pk=company.id %}">PROPERTIES</li>
+                <li><a href="{% url 'reco:accounting_overview' pk=company.id %}">ACCOUNTING</li>
+                <li><a href="{% url 'reco:financials_view' pk=company.id %}">FINANCIALS</li>
+                <li><a href="{% url 'reco:archive_view' pk=company.id %}">ARCHIVE</li>
+                <li style="float:right"><a href="http://google.com" </a>Search</li>
+            </ul>
+        </div>
+
+
+
+	<div class="content">
+            {% block content %}
+            {% endblock %}
+	</div>
+   </body>
+</html>
+

@@ -1,0 +1,42 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title>co-TRAX</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/reco.css' %}">
+    </head>
+    <body>
+        <div class="page-header">
+            <h1>coTRAX</h1>
+        </div>
+
+    	<div class="content">
+            <h2>Login</h2>
+            <p></p>
+            {% if form.errors %}
+                <p>Your username and password didn't match. Please try again.</p>
+            {% endif %}
+
+            <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+                <table>
+                <tr>
+                </tr>
+                <tr>
+                    <td>{{ form.username.label_tag }}</td>
+                    <td>{{ form.username }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.password.label_tag }}</td>
+                    <td>{{ form.password }}</td>
+                </tr>
+                </table>
+
+                <input type="submit" value="Login" />
+                <input type="hidden" name="next" value="{{ next }}" />
+            </form>
+	</div>
+   </body>
+</html>
+
