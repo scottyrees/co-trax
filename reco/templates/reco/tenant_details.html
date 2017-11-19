@@ -1,11 +1,8 @@
 {% extends 'reco/base.html' %}
 
 {% block content %}
-        <div class="content-title">
-            <p>Tenant Details</p>
-        </div>
-        
         <h2>{{ tenant.lname }}, {{ tenant.fname }}</h2>
+        <p>Company: <a href="{% url 'reco:company_home' pk=company.id %}">{{ company.name }}</p>
         <p>Building: <a href="{% url 'reco:building_detail' pk=company.id pk1=unit.building.id %}">{{ building.name }}</p>
 	<p>Unit: <a href="{% url 'reco:unit_detail' pk=company.id pk1=unit.building.id pk2=unit.id %}">{{ unit.roomnumber }}</p>
 	<p>Start Date: {{ tenant.start_date }}</p>
