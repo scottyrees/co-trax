@@ -350,6 +350,27 @@ def financials_view(request, pk):
 
 
 @login_required
+def balance_sheet(request, pk):
+    company = get_object_or_404(Account_Holder, pk=pk)
+    return render(request, 'reco/balance_sheet.html', {'company':company})
+
+@login_required
+def income_statement(request, pk):
+    company = get_object_or_404(Account_Holder, pk=pk)
+    return render(request, 'reco/income_statement.html', {'company':company})
+
+@login_required
+def cashflow_statement(request, pk):
+    company = get_object_or_404(Account_Holder, pk=pk)
+    return render(request, 'reco/cashflow_statement.html', {'company':company})
+
+@login_required
+def equity_plot(request, pk):
+    company = get_object_or_404(Account_Holder, pk=pk)
+    return render(request, 'reco/equity_plot.html', {'company':company})
+
+
+@login_required
 def archive_view(request, pk):
     company = get_object_or_404(Account_Holder, pk=pk)
     return render(request, 'reco/archive.html', {'company':company})

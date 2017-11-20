@@ -38,6 +38,10 @@ urlpatterns = [
     url(r'^(?P<pk>[0-9]+)/accounting/staff/$', views.staff_list, name='staff_list'),
     
     url(r'^(?P<pk>[0-9]+)/financials/$', views.financials_view, name='financials_view'),
+    url(r'^(?P<pk>[0-9]+)/balance_sheet/$', views.balance_sheet, name='balance_sheet'),
+    url(r'^(?P<pk>[0-9]+)/income_statement/$', views.income_statement, name='income_statement'),
+    url(r'^(?P<pk>[0-9]+)/cashflow_statement/$', views.cashflow_statement, name='cashflow_statement'),
+    url(r'^(?P<pk>[0-9]+)/equity_plot/$', views.equity_plot, name='equity_plot'),
 
     url(r'^(?P<pk>[0-9]+)/archive/$', views.archive_view, name='archive_view'),
 ]

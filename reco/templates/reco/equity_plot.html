@@ -1,0 +1,18 @@
+{% extends 'reco/base.html' %}
+
+{% block content %}
+    <div class="side-menu">
+        <ul>
+            <li><a href="{% url 'reco:balance_sheet' pk=company.id %}">Balance Sheet</li>
+            <li><a href="{% url 'reco:income_statement' pk=company.id %}">Income Statement</li>
+            <li><a href="{% url 'reco:cashflow_statement' pk=company.id %}">Cash Flow Statement</li>
+            <li><a href="{% url 'reco:equity_plot' pk=company.id %}">Equity Plot</li>
+        </ul>
+    </div>
+
+        <h2>Equity Plot</h2>
+        <p>Company: {{ company.name }}</p>
+        <p></p>
+
+|
+    {% endblock %}
